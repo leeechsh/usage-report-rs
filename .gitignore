@@ -1,0 +1,9 @@
+/target/
+/var/
+/benchmark/
+/dist/
+*.db
+*.db-shm
+*.db-wal
+*.scan.lock
+*.sock

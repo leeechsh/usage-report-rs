@@ -1,0 +1,18 @@
+[Unit]
+Description=Build the next per-UID root filesystem usage index
+After=local-fs.target
+
+[Service]
+Type=oneshot
+User=root
+UMask=0077
+ExecStart=/usr/local/libexec/usage-report scan
+TimeoutStartSec=infinity
+Nice=10
+IOSchedulingClass=idle
+CPUQuota=200%
+MemoryMax=2G
+LimitNOFILE=4096
+NoNewPrivileges=true
+# Do not enable PrivateTmp/ProtectSystem here: their bind mounts would alter
+# the mount topology being measured and hide parts of the real root filesystem.

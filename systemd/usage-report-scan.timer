@@ -1,0 +1,12 @@
+[Unit]
+Description=Periodically refresh the cached UID usage tree
+
+[Timer]
+OnBootSec=5min
+OnUnitInactiveSec=3h
+AccuracySec=1min
+RandomizedDelaySec=1min
+Unit=usage-report-scan.service
+
+[Install]
+WantedBy=timers.target
